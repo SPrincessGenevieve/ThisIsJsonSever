@@ -622,101 +622,6 @@ const [optionFacSub, setOptionFacSub] = useState([]);
 
 
 
-//FIRST YEAR FIRST SEM
-const [optionSubFFSem, setSubFFSem] = useState ([
-  { value: 'Introduction to Computing', label: 'Introduction to Computing' },
-  { value: 'Computer Programing 1', label: 'Computer Programing 1' },
-  { value: 'Purposive Communication', label: 'Purposive Communication' }
-]);
-
-const [optionFacIntroCom, setOptionFacIntroCom] = useState([
-  { value: 'Dr. Smith', label: 'Dr. Smith', count: 0 },
-  { value: 'Prof. Johnson', label: 'Prof. Johnson', count: 0 },
-  { value: 'Ms. Davis', label: 'Ms. Davis', count: 0 },
-]);
-
-const [optionComProg, setOptionComProg] = useState([
-  { value: 'Emanuel Jackson', label: 'Emanuel Jackson', count: 0 },
-  { value: 'Kathryn Lyons', label: 'Kathryn Lyons', count: 0 },
-  { value: 'Deanna Price', label: 'Deanna Price', count: 0 },
-]);
-
-const [optionPurCom, setOptionPurCom] = useState([
-  { value: 'Jaylen Hutchinson', label: 'Jaylen Hutchinson', count: 0 },
-  { value: 'Kaleigh Chambers', label: 'Kaleigh Chambers', count: 0 },
-  { value: 'William Berg', label: 'William Berg', count: 0 },
-]);
-
-const [optionSched11, setOptionSched11] = useState ([
-  { value: 'MWF 9:00 AM - 10:00 AM', label: 'MWF 9:00 AM - 10:00 AM' },
-  { value: 'MWF 10:00 AM - 11:00 AM', label: 'MWF 10:00 AM - 11:00 AM' },
-  { value: 'TTH 1:00 PM - 2:30 PM', label: 'TTH 1:00 PM - 2:30 PM' },
-]);
-
-
-
-
-//FIRST YEAR SECOND SEM
-const [optionSubFSSem, setSubFSSem] = useState ([
-  { value: 'Computer Programing 2', label: 'Computer Programing 2' },
-  { value: 'Data Structures and Algorithms', label: 'Data Structures and Algorithms' },
-  { value: 'Discrete Mathematics', label: 'Discrete Mathematics' }
-]);
-
-const [optionFacComProg, setOptionFacComProg] = useState([
-  { value: 'Rohan Marsh', label: 'Rohan Marsh', count: 0 },
-  { value: 'Dillon Terrell', label: 'Dillon Terrell', count: 0 },
-  { value: 'Claire Nguyen', label: 'Claire Nguyen', count: 0 },
-]);
-
-const [optionFacDataStruc, setOptionFacDataStruc] = useState([
-  { value: 'Kailee Huffman', label: 'Kailee Huffman', count: 0 },
-  { value: 'Hayley Curry', label: 'Hayley Curry', count: 0 },
-  { value: 'Makena Huynh', label: 'Makena Huynh', count: 0 },
-]);
-
-const [optionMath, setOptionMath] = useState([
-  { value: 'Elliana Burton', label: 'Elliana Burton', count: 0 },
-  { value: 'Cara Mcdaniel', label: 'Cara Mcdaniel', count: 0 },
-  { value: 'Angelo Chavez', label: 'Angelo Chavez', count: 0 },
-]);
-
-const [optionSched12, setOptionSched12] = useState ([
-  { value: 'MThF 7:00 AM - 9:00 AM', label: 'MThF 7:00 AM - 9:00 AM' },
-  { value: 'MThF 1:00 AM - 4:00 AM', label: 'MThF 1:00 AM - 4:00 AM' },
-  { value: 'TW 1:30 PM - 4:30 PM', label: 'TW 1:30 PM - 4:30 PM' },
-]);
-
-
-
-//SECOND YEAR FIRST SEM
-const [optionSubSFSem, setSubSFSem] = useState ([
-  { value: 'Intro to Human Computer Interaction', label: 'Intro to Human Computer Interaction' },
-  { value: 'Fundamentals of Database Systems', label: 'Fundamentals of Database Systems' },
-  { value: 'Platform Technologies', label: 'Platform Technologies' }
-]);
-
-const [optionFacIntroHum, setOptionFacIntroHum] = useState([
-  { value: 'Franklin Daugherty', label: 'Franklin Daugherty', count: 0 },
-  { value: 'Taylor Ingram', label: 'Taylor Ingram', count: 0 },
-  { value: 'Colin Glass', label: 'Colin Glass', count: 0 },
-]);
-
-const [optionFacFDS, setOptionFDS] = useState([
-  { value: 'Addisyn Sampson', label: 'Addisyn Sampson', count: 0 },
-  { value: 'Rachael Campos', label: 'Rachael Campos', count: 0 },
-  { value: 'Desiree Juarez', label: 'Desiree Juarez', count: 0 },
-]);
-
-const [optionPlatTech, setOptionPlatTech] = useState([
-  { value: 'Trystan Ashley', label: 'Trystan Ashley', count: 0 },
-  { value: 'Elvis Downs', label: 'Elvis Downs', count: 0 },
-  { value: 'Naomi French', label: 'Naomi French', count: 0 },
-]);
-
-
-
-
 //THIRD YEAR FIRST SEM
   const [optionSub, setOptionSub] = useState ([
     { value: 'Information Assurance and Security', label: 'Information Assurance and Security' },
@@ -733,9 +638,9 @@ const [optionPlatTech, setOptionPlatTech] = useState([
     { value: 'Deanna Price', label: 'Deanna Price', count: 0, subjects: ["Computer Programing 1"] },
     { value: 'Jaylen Hutchinson', label: 'Jaylen Hutchinson', count: 0, subjects: ["Purposive Communication"] },
     { value: 'Kaleigh Chambers', label: 'Kaleigh Chambers', count: 0, subjects: ["Purposive Communication"] },
-    { value: 'William Berg', label: 'William Berg', count: 0, count: 0, subjects: ["Purposive Communication"] },
-    { value: 'Dr. Smith', label: 'Dr. Smith', count: 0, count: 0, subjects: ["Data Structures and Algorithms"] },
-    { value: 'Prof. Johnson', label: 'Prof. Johnson', count: 0, count: 0, subjects: ["Data Structures and Algorithms"] },
+    { value: 'William Berg', label: 'William Berg', count: 0, subjects: ["Purposive Communication"] },
+    { value: 'Dr. Smith', label: 'Dr. Smith', count: 0, subjects: ["Data Structures and Algorithms"] },
+    { value: 'Prof. Johnson', label: 'Prof. Johnson', count: 0, subjects: ["Data Structures and Algorithms"] },
     { value: 'Ms. Davis', label: 'Ms. Davis', count: 0, subjects: ["Data Structures and Algorithms"] },
     { value: 'Jonas Peters', label: 'Jonas Peters', count: 0, subjects: ["Discrete Mathematics"] },
     { value: 'Colten Meadows', label: 'Colten Meadows', count: 0, subjects: ["Discrete Mathematics"] },
