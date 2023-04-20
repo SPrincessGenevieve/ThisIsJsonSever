@@ -447,82 +447,17 @@ export default function Form() {
   const [selectedOptionSched, setSelectedOptionSched] = useState(null);
   const [tableData, setTableData] = useState([]);
 
-  const handleSubjectChange = (selectedOption) => {
-    setSelectedOptionSub(selectedOption);
-    //1ST YEAR
-    if (selectedOption.value === "Introduction to Computing") {
-      setOptionFacIntroCom(optionFacIntroCom);
-    } else if (selectedOption.value === "Computer Programing 1") {
-      setOptionComProg(optionComProg)}
-      else {
-      setOptionFac([
-        
-{ value: 'Dr. Smith', label: 'Dr. Smith', count: 0 },
-{ value: 'Prof. Johnson', label: 'Prof. Johnson', count: 0 },
-{ value: 'Ms. Davis', label: 'Ms. Davis', count: 0 },
-{ value: 'Emanuel Jackson', label: 'Emanuel Jackson', count: 0 },
-{ value: 'Kathryn Lyons', label: 'Kathryn Lyons', count: 0 },
-{ value: 'Deanna Price', label: 'Deanna Price', count: 0 },
-{ value: 'Jaylen Hutchinson', label: 'Jaylen Hutchinson', count: 0 },
-{ value: 'Kaleigh Chambers', label: 'Kaleigh Chambers', count: 0 },
-{ value: 'William Berg', label: 'William Berg', count: 0 },
-{ value: 'Rohan Marsh', label: 'Rohan Marsh', count: 0 },
-{ value: 'Dillon Terrell', label: 'Dillon Terrell', count: 0 },
-{ value: 'Claire Nguyen', label: 'Claire Nguyen', count: 0 },
-{ value: 'Kailee Huffman', label: 'Kailee Huffman', count: 0 },
-{ value: 'Hayley Curry', label: 'Hayley Curry', count: 0 },
-{ value: 'Makena Huynh', label: 'Makena Huynh', count: 0 },
-{ value: 'Elliana Burton', label: 'Elliana Burton', count: 0 },
-{ value: 'Cara Mcdaniel', label: 'Cara Mcdaniel', count: 0 },
-{ value: 'Angelo Chavez', label: 'Angelo Chavez', count: 0 },
-{ value: 'Franklin Daugherty', label: 'Franklin Daugherty', count: 0 },
-{ value: 'Taylor Ingram', label: 'Taylor Ingram', count: 0 },
-{ value: 'Colin Glass', label: 'Colin Glass', count: 0 },
-{ value: 'Addisyn Sampson', label: 'Addisyn Sampson', count: 0 },
-{ value: 'Rachael Campos', label: 'Rachael Campos', count: 0 },
-{ value: 'Desiree Juarez', label: 'Desiree Juarez', count: 0 },
-{ value: 'Trystan Ashley', label: 'Trystan Ashley', count: 0 },
-{ value: 'Elvis Downs', label: 'Elvis Downs', count: 0 },
-{ value: 'Naomi French', label: 'Naomi French', count: 0 },
-{ value: 'Franklin Daugherty', label: 'Franklin Daugherty', count: 0 },
-{ value: 'Taylor Ingram', label: 'Taylor Ingram', count: 0 },
-{ value: 'Colin Glass', label: 'Colin Glass', count: 0 },
-{ value: 'Addisyn Sampson', label: 'Addisyn Sampson', count: 0 },
-{ value: 'Rachael Campos', label: 'Rachael Campos', count: 0 },
-{ value: 'Desiree Juarez', label: 'Desiree Juarez', count: 0 },
-{ value: 'Trystan Ashley', label: 'Trystan Ashley', count: 0 },
-{ value: 'Elvis Downs', label: 'Elvis Downs', count: 0 },
-{ value: 'Naomi French', label: 'Naomi French', count: 0 },
-{ value: 'Dr. Smith', label: 'Dr. Smith', count: 0 },
-{ value: 'Prof. Johnson', label: 'Prof. Johnson', count: 0 },
-{ value: 'Ms. Davis', label: 'Ms. Davis', count: 0 },
-{ value: 'Emanuel Jackson', label: 'Emanuel Jackson', count: 0 },
-{ value: 'Kathryn Lyons', label: 'Kathryn Lyons', count: 0 },
-{ value: 'Deanna Price', label: 'Deanna Price', count: 0 },
-{ value: 'Jaylen Hutchinson', label: 'Jaylen Hutchinson', count: 0 },
-{ value: 'Kaleigh Chambers', label: 'Kaleigh Chambers', count: 0 },
-{ value: 'William Berg', label: 'William Berg', count: 0 },
-{ value: 'Dr. Smith', label: 'Dr. Smith', count: 0 },
-{ value: 'Prof. Johnson', label: 'Prof. Johnson', count: 0 },
-{ value: 'Ms. Davis', label: 'Ms. Davis', count: 0 },
-{ value: 'Jonas Peters', label: 'Jonas Peters', count: 0 },
-{ value: 'Colten Meadows', label: 'Colten Meadows', count: 0 },
-{ value: 'Laney Murray', label: 'Laney Murray', count: 0 },
-{ value: 'Haiden Goodwin', label: 'Haiden Goodwin', count: 0 },
-{ value: 'Kaleigh Chambers', label: 'Kaleigh Chambers', count: 0 },
-{ value: 'Luke Rios', label: 'Luke Rios', count: 0 },
-{ value: 'Mara Cross', label: 'Dr. Smith', count: 0 },
-{ value: 'Jessie Day', label: 'Prof. Johnson', count: 0 },
-{ value: 'Savanna Neal', label: 'Ms. Davis', count: 0 },
-{ value: 'Charity Mcgee', label: 'Jonas Peters', count: 0 },
-{ value: 'Colten Meadows', label: 'Colten Meadows', count: 0 },
-{ value: 'Laney Ponce', label: 'Laney Murray', count: 0 },
-{ value: 'Santiago Hopkins', label: 'Haiden Goodwin', count: 0 },
-{ value: 'Giovanny Abbott', label: 'Kaleigh Chambers', count: 0 },
-{ value: 'Kayla Joseph', label: 'Luke Rios', count: 0 }
-      ]);
-    }
-    };
+  const handleSubjectChange = (selectedOptionSub) => {
+    setSelectedOptionSub(selectedOptionSub);
+    
+    // get the faculty members that are handling the selected subject
+    const selectedSubjectFaculties = optionFac.filter((faculty) => {
+      return faculty.subjects.includes(selectedOptionSub.value);
+    });
+  
+    // set the options for the faculty dropdown to be the selected subject's faculties
+    setOptionFacSub(selectedSubjectFaculties);
+  };
   
   const handleFacultyChange = (selectedOption) => {
     setSelectedOptionFac(selectedOption);
@@ -683,161 +618,8 @@ const optionSubjects = yearLevel && semester && yearLevel.value === 'First Year'
 
  
 
+const [optionFacSub, setOptionFacSub] = useState([]);
 
-
-const [optionFacSub, setOptionFacSub] = useState([
-  {
-    label: "Introduction to Computing",
-    options: [
-      { value: 'Dr. Smith', label: 'Dr. Smith', count: 0 },
-      { value: 'Prof. Johnson', label: 'Prof. Johnson', count: 0 },
-      { value: 'Ms. Davis', label: 'Ms. Davis', count: 0 }
-    ]},
-    {
-    label: "Computer Programing 1",
-    options: [
-    { value: 'Emanuel Jackson', label: 'Emanuel Jackson', count: 0 },
-    { value: 'Kathryn Lyons', label: 'Kathryn Lyons', count: 0 },
-    { value: 'Deanna Price', label: 'Deanna Price', count: 0 },
-    ]},
-    {
-    label: "Purposive Communication",
-    options: [
-    { value: 'Jaylen Hutchinson', label: 'Jaylen Hutchinson', count: 0 },
-    { value: 'Kaleigh Chambers', label: 'Kaleigh Chambers', count: 0 },
-    { value: 'William Berg', label: 'William Berg', count: 0 },
-    ]},
-    {
-    label: "Data Structures and Algorithms",
-    options: [
-    { value: 'Rohan Marsh', label: 'Rohan Marsh', count: 0 },
-    { value: 'Dillon Terrell', label: 'Dillon Terrell', count: 0 },
-    { value: 'Claire Nguyen', label: 'Claire Nguyen', count: 0 },
-    ]},
-    {
-    label: "Discrete Mathematics",
-    options: [
-    { value: 'Kailee Huffman', label: 'Kailee Huffman', count: 0 },
-    { value: 'Hayley Curry', label: 'Hayley Curry', count: 0 },
-    { value: 'Makena Huynh', label: 'Makena Huynh', count: 0 },
-    ]},
-    {
-    label: "Intro to Human Computer Interaction",
-    options: [
-    { value: 'Elliana Burton', label: 'Elliana Burton', count: 0 },
-    { value: 'Cara Mcdaniel', label: 'Cara Mcdaniel', count: 0 },
-    { value: 'Angelo Chavez', label: 'Angelo Chavez', count: 0 },
-    ]},
-    {
-    label: "Fundamentals of Database Systems",
-    options: [
-    { value: 'Franklin Daugherty', label: 'Franklin Daugherty', count: 0 },
-    { value: 'Taylor Ingram', label: 'Taylor Ingram', count: 0 },
-    { value: 'Colin Glass', label: 'Colin Glass', count: 0 },
-    ]},
-    {
-    label: "Platform Technologies",
-    options: [
-    { value: 'Addisyn Sampson', label: 'Addisyn Sampson', count: 0 },
-    { value: 'Rachael Campos', label: 'Rachael Campos', count: 0 },
-    { value: 'Desiree Juarez', label: 'Desiree Juarez', count: 0 },
-    ]},
-    {
-    label: "Information Management",
-    options: [
-    { value: 'Trystan Ashley', label: 'Trystan Ashley', count: 0 },
-    { value: 'Elvis Downs', label: 'Elvis Downs', count: 0 },
-    { value: 'Naomi French', label: 'Naomi French', count: 0 },
-    ]},
-    {
-    label: "Networking 1",
-    options: [
-    { value: 'Franklin Daugherty', label: 'Franklin Daugherty', count: 0 },
-    { value: 'Taylor Ingram', label: 'Taylor Ingram', count: 0 },
-    { value: 'Colin Glass', label: 'Colin Glass', count: 0 },
-    ]},
-    {
-    label: "Web Systems and Technolgies",
-    options: [
-    { value: 'Addisyn Sampson', label: 'Addisyn Sampson', count: 0 },
-    { value: 'Rachael Campos', label: 'Rachael Campos', count: 0 },
-    { value: 'Desiree Juarez', label: 'Desiree Juarez', count: 0 },
-    ]},
-    {
-    label: "Information Assurance and Security",
-    options: [
-    { value: 'Trystan Ashley', label: 'Trystan Ashley', count: 0 },
-    { value: 'Elvis Downs', label: 'Elvis Downs', count: 0 },
-    { value: 'Naomi French', label: 'Naomi French', count: 0 },
-    ]},
-    {
-    label: "Networking 2",
-    options: [
-    { value: 'Dr. Smith', label: 'Dr. Smith', count: 0 },
-    { value: 'Prof. Johnson', label: 'Prof. Johnson', count: 0 },
-    { value: 'Ms. Davis', label: 'Ms. Davis', count: 0 },
-    ]},
-    {
-    label: "	Mobile Programming",
-    options: [
-    { value: 'Emanuel Jackson', label: 'Emanuel Jackson', count: 0 },
-    { value: 'Kathryn Lyons', label: 'Kathryn Lyons', count: 0 },
-    { value: 'Deanna Price', label: 'Deanna Price', count: 0 },
-    ]},
-    {
-    label: "CAPSTONE Project and Research 1",
-    options: [
-    { value: 'Jaylen Hutchinson', label: 'Jaylen Hutchinson', count: 0 },
-    { value: 'Kaleigh Chambers', label: 'Kaleigh Chambers', count: 0 },
-    { value: 'William Berg', label: 'William Berg', count: 0 },
-    ]},
-    {
-    label: "Integrative Programming and Technologies",
-    options: [
-    { value: 'Dr. Smith', label: 'Dr. Smith', count: 0 },
-    { value: 'Prof. Johnson', label: 'Prof. Johnson', count: 0 },
-    { value: 'Ms. Davis', label: 'Ms. Davis', count: 0 },
-    ]},
-    {
-    label: "Applications Development and Emerging Technologies",
-    options: [
-    { value: 'Jonas Peters', label: 'Jonas Peters', count: 0 },
-    { value: 'Colten Meadows', label: 'Colten Meadows', count: 0 },
-    { value: 'Laney Murray', label: 'Laney Murray', count: 0 },
-    ]},
-    {
-    label: "CAPSTONE Project and Research 2",
-    options: [
-      { value: 'Haiden Goodwin', label: 'Haiden Goodwin', count: 0 },
-      { value: 'Kaleigh Chambers', label: 'Kaleigh Chambers', count: 0 },
-      { value: 'Luke Rios', label: 'Luke Rios', count: 0 },
-    ]},
-    {
-    label: "System Administration and Maintenance",
-    options: [
-      { value: 'Mara Cross', label: 'Dr. Smith', count: 0 },
-      { value: 'Jessie Day', label: 'Prof. Johnson', count: 0 },
-      { value: 'Savanna Neal', label: 'Ms. Davis', count: 0 },
-    ]},
-    {
-    label: "Social and Professional Issues	",
-    options: [
-    { value: 'Jonas Peters', label: 'Jonas Peters', count: 0 },
-    { value: 'Colten Meadows', label: 'Colten Meadows', count: 0 },
-    { value: 'Laney Murray', label: 'Laney Murray', count: 0 },
-    ]},
-
-    {
-      label: "PRACTICUM(486 hrs.)",
-      options: [
-        { value: 'Santiago Hopkins', label: 'Haiden Goodwin', count: 0 },
-        { value: 'Giovanny Abbott', label: 'Kaleigh Chambers', count: 0 },
-        { value: 'Kayla Joseph', label: 'Luke Rios', count: 0 }
-      ]},
-
-
-  
-])
 
 
 //FIRST YEAR FIRST SEM
@@ -932,44 +714,8 @@ const [optionPlatTech, setOptionPlatTech] = useState([
   { value: 'Naomi French', label: 'Naomi French', count: 0 },
 ]);
 
-const [optionSched21, setOptionSched21] = useState([
-  { value: 'MThF 7:00 AM - 9:00 AM', label: 'MThF 7:00 AM - 9:00 AM' },
-  { value: 'MThF 1:00 AM - 4:00 AM', label: 'MThF 1:00 AM - 4:00 AM' },
-  { value: 'TW 1:30 PM - 4:30 PM', label: 'TW 1:30 PM - 4:30 PM' },
-]);
 
 
-
-//SECOND YEAR SECOND SEM
-const [optionSubSSSem, setSubSSSem] = useState ([
-  { value: 'Information Management', label: 'Information Management' },
-  { value: 'Networking 1', label: 'Networking 1' },
-  { value: 'Web Systems and Technolgies', label: 'Web Systems and Technolgies' }
-]);
-
-const [optionFacInfoMan, setOptionFacInfoMan] = useState([
-  { value: 'Franklin Daugherty', label: 'Franklin Daugherty', count: 0 },
-  { value: 'Taylor Ingram', label: 'Taylor Ingram', count: 0 },
-  { value: 'Colin Glass', label: 'Colin Glass', count: 0 },
-]);
-
-const [optionFacNet1, setOptionFacNet1] = useState([
-  { value: 'Addisyn Sampson', label: 'Addisyn Sampson', count: 0 },
-  { value: 'Rachael Campos', label: 'Rachael Campos', count: 0 },
-  { value: 'Desiree Juarez', label: 'Desiree Juarez', count: 0 },
-]);
-
-const [optionWST, setOptionWST] = useState([
-  { value: 'Trystan Ashley', label: 'Trystan Ashley', count: 0 },
-  { value: 'Elvis Downs', label: 'Elvis Downs', count: 0 },
-  { value: 'Naomi French', label: 'Naomi French', count: 0 },
-]);
-
-const [optionSched22, setOptionSched22] = useState([
-  { value: 'MThF 7:00 AM - 9:00 AM', label: 'MThF 7:00 AM - 9:00 AM' },
-  { value: 'MThF 1:00 AM - 4:00 AM', label: 'MThF 1:00 AM - 4:00 AM' },
-  { value: 'TW 1:30 PM - 4:30 PM', label: 'TW 1:30 PM - 4:30 PM' },
-]);
 
 //THIRD YEAR FIRST SEM
   const [optionSub, setOptionSub] = useState ([
@@ -979,91 +725,77 @@ const [optionSched22, setOptionSched22] = useState([
   ]);
 
   const [optionFac, setOptionFac] = useState([
-    { value: 'Dr. Smith', label: 'Dr. Smith', count: 0 },
-    { value: 'Prof. Johnson', label: 'Prof. Johnson', count: 0 },
-    { value: 'Ms. Davis', label: 'Ms. Davis', count: 0 },
-  ]);
-
-  const [optionFacIAS, setOptionFacIAS] = useState([
-    { value: 'Emanuel Jackson', label: 'Emanuel Jackson', count: 0 },
-    { value: 'Kathryn Lyons', label: 'Kathryn Lyons', count: 0 },
-    { value: 'Deanna Price', label: 'Deanna Price', count: 0 },
-  ]);
-
-  const [optionMobProg, setoptionMobProg] = useState([
-    { value: 'Jaylen Hutchinson', label: 'Jaylen Hutchinson', count: 0 },
-    { value: 'Kaleigh Chambers', label: 'Kaleigh Chambers', count: 0 },
-    { value: 'William Berg', label: 'William Berg', count: 0 },
+    { value: 'Dr. Smith', label: 'Dr. Smith', count: 0, subjects: ["Introduction to Computing"] },
+    { value: 'Prof. Johnson', label: 'Prof. Johnson', count: 0, subjects: ["Introduction to Computing"] },
+    { value: 'Ms. Davis', label: 'Ms. Davis', count: 0, subjects: ["Introduction to Computing"] },
+    { value: 'Emanuel Jackson', label: 'Emanuel Jackson', count: 0, subjects: ["Computer Programing 1"] },
+    { value: 'Kathryn Lyons', label: 'Kathryn Lyons', count: 0, subjects: ["Computer Programing 1"] },
+    { value: 'Deanna Price', label: 'Deanna Price', count: 0, subjects: ["Computer Programing 1"] },
+    { value: 'Jaylen Hutchinson', label: 'Jaylen Hutchinson', count: 0, subjects: ["Purposive Communication"] },
+    { value: 'Kaleigh Chambers', label: 'Kaleigh Chambers', count: 0, subjects: ["Purposive Communication"] },
+    { value: 'William Berg', label: 'William Berg', count: 0, count: 0, subjects: ["Purposive Communication"] },
+    { value: 'Dr. Smith', label: 'Dr. Smith', count: 0, count: 0, subjects: ["Data Structures and Algorithms"] },
+    { value: 'Prof. Johnson', label: 'Prof. Johnson', count: 0, count: 0, subjects: ["Data Structures and Algorithms"] },
+    { value: 'Ms. Davis', label: 'Ms. Davis', count: 0, subjects: ["Data Structures and Algorithms"] },
+    { value: 'Jonas Peters', label: 'Jonas Peters', count: 0, subjects: ["Discrete Mathematics"] },
+    { value: 'Colten Meadows', label: 'Colten Meadows', count: 0, subjects: ["Discrete Mathematics"] },
+    { value: 'Laney Murray', label: 'Laney Murray', count: 0, subjects: ["Discrete Mathematics"] },
+    { value: 'Haiden Goodwin', label: 'Haiden Goodwin', count: 0, subjects: ["Intro to Human Computer Interaction"] },
+    { value: 'Kaleigh Chambers', label: 'Kaleigh Chambers', count: 0, subjects: ["Intro to Human Computer Interaction"] },
+    { value: 'Luke Rios', label: 'Luke Rios', count: 0, subjects: ["Intro to Human Computer Interaction"] },
+    { value: 'Mara Cross', label: 'Dr. Smith', count: 0, subjects: ["Fundamentals of Database Systems"] },
+    { value: 'Jessie Day', label: 'Prof. Johnson', count: 0, subjects: ["Fundamentals of Database Systems"] },
+    { value: 'Savanna Neal', label: 'Ms. Davis', count: 0, subjects: ["Fundamentals of Database Systems"] },
+    { value: 'Charity Mcgee', label: 'Jonas Peters', count: 0, subjects: ["Platform Technologies"] },
+    { value: 'Colten Meadows', label: 'Colten Meadows', count: 0, subjects: ["Platform Technologies"] },
+    { value: 'Laney Ponce', label: 'Laney Murray', count: 0, subjects: ["Platform Technologies"] },
+    { value: 'Santiago Hopkins', label: 'Haiden Goodwin', count: 0, subjects: ["Information Management"] },
+    { value: 'Giovanny Abbott', label: 'Kaleigh Chambers', count: 0, subjects: ["Information Management"] },
+    { value: 'Kayla Joseph', label: 'Luke Rios', count: 0, subjects: ["Information Management"] },
+    { value: 'Trystan Ashley', label: 'Trystan Ashley', count: 0, subjects: ["Networking 1"] },
+    { value: 'Elvis Downs', label: 'Elvis Downs', count: 0, subjects: ["Networking 1"] },
+    { value: 'Naomi French', label: 'Naomi French', count: 0, subjects: ["Networking 1"] },
+    { value: 'Addisyn Sampson', label: 'Addisyn Sampson', count: 0, subjects: ["Web Systems and Technolgies"] },
+    { value: 'Rachael Campos', label: 'Rachael Campos', count: 0, subjects: ["Web Systems and Technolgies"] },
+    { value: 'Desiree Juarez', label: 'Desiree Juarez', count: 0, subjects: ["Web Systems and Technolgies"] },
+    { value: 'Franklin Daugherty', label: 'Franklin Daugherty', count: 0, subjects: ["Information Assurance and Security"] },
+    { value: 'Taylor Ingram', label: 'Taylor Ingram', count: 0, subjects: ["Information Assurance and Security"] },
+    { value: 'Colin Glass', label: 'Colin Glass', count: 0, subjects: ["Information Assurance and Security"] },
+    { value: 'Trystan Ashley', label: 'Trystan Ashley', count: 0, subjects: ["Networking 2"] },
+    { value: 'Elvis Downs', label: 'Elvis Downs', count: 0, subjects: ["Networking 2"] },
+    { value: 'Naomi French', label: 'Naomi French', count: 0, subjects: ["Networking 2"] },
+    { value: 'Franklin Daugherty', label: 'Franklin Daugherty', count: 0 },
+    { value: 'Taylor Ingram', label: 'Taylor Ingram', count: 0, subjects: ["Mobile Programming"] },
+    { value: 'Colin Glass', label: 'Colin Glass', count: 0, subjects: ["Mobile Programming"] },
+    { value: 'Addisyn Sampson', label: 'Addisyn Sampson', count: 0, subjects: ["Mobile Programming"] },
+    { value: 'Rachael Campos', label: 'Rachael Campos', count: 0, subjects: ["CAPSTONE Project and Research 1"] },
+    { value: 'Desiree Juarez', label: 'Desiree Juarez', count: 0, subjects: ["CAPSTONE Project and Research 1"] },
+    { value: 'Trystan Ashley', label: 'Trystan Ashley', count: 0, subjects: ["CAPSTONE Project and Research 1"] },
+    { value: 'Elvis Downs', label: 'Elvis Downs', count: 0, subjects: ["Integrative Programming and Technologies"] },
+    { value: 'Prof. Johnson', label: 'Prof. Johnson', count: 0, subjects: ["Integrative Programming and Technologies"] },
+    { value: 'Ms. Davis', label: 'Ms. Davis', count: 0, subjects: ["Integrative Programming and Technologies"] },
+    { value: 'Jonas Peters', label: 'Jonas Peters', count: 0, subjects: ["Applications Development and Emerging Technologies"] },
+    { value: 'Colten Meadows', label: 'Colten Meadows', count: 0, subjects: ["Applications Development and Emerging Technologies"] },
+    { value: 'Laney Murray', label: 'Laney Murray', count: 0, subjects: ["Applications Development and Emerging Technologies"] },
+    { value: 'Haiden Goodwin', label: 'Haiden Goodwin', count: 0, subjects: ["CAPSTONE Project and Research 2"] },
+    { value: 'Kaleigh Chambers', label: 'Kaleigh Chambers', count: 0, subjects: ["CAPSTONE Project and Research 2"] },
+    { value: 'Luke Rios', label: 'Luke Rios', count: 0, subjects: ["CAPSTONE Project and Research 2"] },
+    { value: 'Mara Cross', label: 'Dr. Smith', count: 0, subjects: ["System Administration and Maintenance"] },
+    { value: 'Jessie Day', label: 'Prof. Johnson', count: 0, subjects: ["System Administration and Maintenance"] },
+    { value: 'Savanna Neal', label: 'Ms. Davis', count: 0, subjects: ["System Administration and Maintenance"] },
+    { value: 'Jonas Peters', label: 'Jonas Peters', count: 0, subjects: ["Social and Professional Issues"] },
+    { value: 'Colten Meadows', label: 'Colten Meadows', count: 0, subjects: ["Social and Professional Issues"] },
+    { value: 'Laney Murray', label: 'Laney Murray', count: 0, subjects: ["Social and Professional Issues"] },
+    { value: 'Santiago Hopkins', label: 'Haiden Goodwin', count: 0, subjects: ["PRACTICUM(486 hrs.)"] },
+    { value: 'Giovanny Abbott', label: 'Kaleigh Chambers', count: 0, subjects: ["PRACTICUM(486 hrs.)"] },
+    { value: 'Kayla Joseph', label: 'Luke Rios', count: 0, subjects: ["PRACTICUM(486 hrs.)"] }
   ]);
 
   const [optionSched, setOptionSched] = useState([
-    { value: 'MWF 9:00 AM - 10:00 AM', label: 'MWF 9:00 AM - 10:00 AM' },
-    { value: 'MWF 10:00 AM - 11:00 AM', label: 'MWF 10:00 AM - 11:00 AM' },
-    { value: 'TTH 1:00 PM - 2:30 PM', label: 'TTH 1:00 PM - 2:30 PM' },
-  ]);
-
-  //THIRD YEAR SECOND SEM
-  const [optionSubTSSem, setOptionSubTSSem] = useState ([
-    { value: 'CAPSTONE Project and Research 1', label: 'CAPSTONE Project and Research 1' },
-    { value: 'Integrative Programming and Technologies', label: 'Integrative Programming and Technologies' },
-    { value: 'Applications Development and Emerging Technologies', label: 'Applications Development and Emerging Technologies' }
-  ]);
-
-  const [optionFacCapstone, setOptionFacCapstone] = useState([
-    { value: 'Dr. Smith', label: 'Dr. Smith', count: 0 },
-    { value: 'Prof. Johnson', label: 'Prof. Johnson', count: 0 },
-    { value: 'Ms. Davis', label: 'Ms. Davis', count: 0 },
-  ]);
-
-  const [optionFacIPT, setOptionFacIPT] = useState([
-    { value: 'Jonas Peters', label: 'Jonas Peters', count: 0 },
-    { value: 'Colten Meadows', label: 'Colten Meadows', count: 0 },
-    { value: 'Laney Murray', label: 'Laney Murray', count: 0 },
-  ]);
-
-  const [optionAppDev, setOptionAppDev] = useState([
-    { value: 'Haiden Goodwin', label: 'Haiden Goodwin', count: 0 },
-    { value: 'Kaleigh Chambers', label: 'Kaleigh Chambers', count: 0 },
-    { value: 'Luke Rios', label: 'Luke Rios', count: 0 },
-  ]);
-
-  const [optionSched32, setOptionSched32] = useState([
-    { value: 'MWF 9:00 AM - 10:00 AM', label: 'MWF 9:00 AM - 10:00 AM' },
-    { value: 'MWF 10:00 AM - 11:00 AM', label: 'MWF 10:00 AM - 11:00 AM' },
-    { value: 'TTH 1:00 PM - 2:30 PM', label: 'TTH 1:00 PM - 2:30 PM' },
-  ]);
-
-
- //FOURTH YEAR FIRST SEM
- const [optionSubFourthFSem, setOptionSubFourthFSem] = useState ([
-  { value: 'CAPSTONE Project and Research 2', label: 'CAPSTONE Project and Research 2' },
-  { value: 'System Administration and Maintenance', label: 'System Administration and Maintenance' },
-  { value: 'Social and Professional Issues', label: 'Social and Professional Issues' }
-]);
-
-const [optionFacCapstone2, setOptionFacCapstone2] = useState([
-  { value: 'Mara Cross', label: 'Dr. Smith', count: 0 },
-  { value: 'Jessie Day', label: 'Prof. Johnson', count: 0 },
-  { value: 'Savanna Neal', label: 'Ms. Davis', count: 0 },
-]);
-
-const [optionFacSAM, setOptionFacSAM] = useState([
-  { value: 'Charity Mcgee', label: 'Jonas Peters', count: 0 },
-  { value: 'Colten Meadows', label: 'Colten Meadows', count: 0 },
-  { value: 'Laney Ponce', label: 'Laney Murray', count: 0 },
-]);
-
-const [optionSPI, setOptionSPI] = useState([
-  { value: 'Santiago Hopkins', label: 'Haiden Goodwin', count: 0 },
-  { value: 'Giovanny Abbott', label: 'Kaleigh Chambers', count: 0 },
-  { value: 'Kayla Joseph', label: 'Luke Rios', count: 0 },
-]);
-
-const [optionSched41, setOptionSched41] = [
-  { value: 'MWF 9:00 AM - 10:00 AM', label: 'MWF 9:00 AM - 10:00 AM' },
-  { value: 'MWF 10:00 AM - 11:00 AM', label: 'MWF 10:00 AM - 11:00 AM' },
-  { value: 'TTH 1:00 PM - 2:30 PM', label: 'TTH 1:00 PM - 2:30 PM' },
-];
+    { value: 'MThF 7:00 AM - 9:00 AM', label: 'MThF 7:00 AM - 9:00 AM' },
+    { value: 'MThF 1:00 AM - 4:00 AM', label: 'MThF 1:00 AM - 4:00 AM' },
+    { value: 'TW 1:30 PM - 4:30 PM', label: 'TW 1:30 PM - 4:30 PM' },
+  ])
 
 
   
